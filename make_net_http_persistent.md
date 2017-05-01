@@ -28,7 +28,7 @@
 
  * ruby 的标准库 net/http 没有提供 keepalive 特性
  * 使用第三方 gem: net-http-persistent
- * 使用效果：大幅简单 http 连接超时错误
+ * 使用效果：大幅降低 http 连接超时错误，错误数从上千到个位数
 
 ---
 
