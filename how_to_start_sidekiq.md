@@ -9,7 +9,7 @@
 
 ## 解决方法
 
-仔细研究 `capistrano-sidekiq` 启动实例的方法，发现 sidekiq 是根据 role 启动的，详细代码如下（文件 lib/tasks/sidekiq.rake）：
+仔细研究 `capistrano-sidekiq` 启动实例的方法，发现 sidekiq 是根据 role 启动的，详细代码如下（文件 lib/capistrano/tasks/sidekiq.rake）：
 ```ruby
   desc 'Start sidekiq'
   task :start do
@@ -75,5 +75,3 @@
 主要的修改是为方法 start_sidekiq 增加 role 参数，启动时传入 role 参数，在 start_sidekiq 根据 role 获取 sidekiq_queue 参数。
 
 这样问题得到解决。详细代码见 https://github.com/xiewenwei/capistrano-sidekiq/blob/feature/sidekiq-queue-for-role/lib/capistrano/tasks/sidekiq.rake
-
-
